@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Flickr</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="./lib/angular-messages.min.js"></script>
+	<script src="./module.js"></script>
+</head>
+<body>
+	<div name="bodyDiv" id="bodyDiv">
+		<div name="searchDiv" id="searchDiv">
+			<h1>Flickr Searcher</h1>
+			<span><input type="text" place-holder="Enter a tag to search for"><input type="submit"></span>
+		</div>
+		<div name="searchingDiv" id="searchingDiv" ng-show="vm.searchingDiv">
+			<h3>Searching Instagram for photos tagged with "{{ vm.tag }}"</h3>
+		</div>
+		<div name="resultsDiv" id="resultsDiv" ng-if="vm.results">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>	
+	</div>
+</body>
+</html>
