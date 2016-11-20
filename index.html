@@ -8,20 +8,23 @@
 	<script src="./lib/angular-messages.min.js"></script>
 	<script src="./module.js"></script>
 </head>
-<body>
-	<div name="bodyDiv" id="bodyDiv">
+<body ng-app="myApp">
+	<div name="bodyDiv" id="bodyDiv" ng-controller="myCtrl as vm">
 		<div name="searchDiv" id="searchDiv">
 			<h1>Flickr Searcher</h1>
-			<span><input type="text" place-holder="Enter a tag to search for"><input type="submit"></span>
+			<form name="vm.myForm" ng-submit="vm.formSubmit(vm.tag)">
+				<span><input type="text" ng-model="vm.tag" place-holder="Enter a tag to search for"><input type="submit"></span>
+			</form>
 		</div>
 		<div name="searchingDiv" id="searchingDiv" ng-show="vm.searchingDiv">
 			<h3>Searching Instagram for photos tagged with "{{ vm.tag }}"</h3>
 		</div>
 		<div name="resultsDiv" id="resultsDiv" ng-if="vm.results">
+			<h3>We found 20 results for "{{ vm.tag }}"</h3>
 			<ul>
-				<li></li>
-				<li></li>
-				<li></li>
+				<div ng-repeat="result in vm.results">
+					<li><iframe src="{{ }}" width="250" height="150"></iframe></li>
+				</div>
 			</ul>
 		</div>	
 	</div>
