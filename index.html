@@ -13,7 +13,7 @@
 		<div name="searchDiv" id="searchDiv">
 			<h1>Flickr Searcher</h1>
 			<form name="vm.myForm" ng-submit="vm.formSubmit(vm.tag)">
-				<span><input type="text" ng-model="vm.tag" place-holder="Enter a tag to search for"><input type="submit"></span>
+				<span><input type="text" ng-model="vm.tag" place-holder="Enter a tag to search for" required><input type="submit"></span>
 			</form>
 		</div>
 		<div name="searchingDiv" id="searchingDiv" ng-show="vm.searchingDiv">
@@ -23,7 +23,7 @@
 			<h3>We found 20 results for "{{ vm.tag }}"</h3>
 			<ul>
 				<div ng-repeat="result in vm.results">
-					<li><iframe src="{{ }}" width="250" height="150"></iframe></li>
+					<li><iframe ng-src="{{ vm.trustSrc('https://farm' + {farm} + '.staticflickr.com/' + {server} + '/' + {id} + '_' + {secret} + '_m.jpg') }}"></iframe></li>
 				</div>
 			</ul>
 		</div>	

@@ -1,8 +1,6 @@
-angular.module('myApp', [])
-	.controller('myCtrl', function($http) {
+angular.module('myApp', ['ngMessages'])
+	.controller('myCtrl', function($http, $sce) {
 		var vm = this;
-
-		vm.embedUrl = "http://www.youtube.com/embed/";
 		
 		vm.trustSrc = function(src) {
 		  return $sce.trustAsResourceUrl(src);
@@ -10,25 +8,25 @@ angular.module('myApp', [])
 
 		vm.formSubmit = function(tag) {
 			vm.tag = tag;
-			var url = "";
+			var url = "https://api.flickr.com/services/rest";
 			var request = {
-			  apikey: "7ad26a9061e966c98dba50a926fcb00bea4b6388",
-		      text: text,
-		      outputMode: 'json',
-		      showSourceText: '1',
-		      jsonp: "JSON_CALLBACK"
+			    method: 'flickr.photos.search',
+			    api_key: '5bab27af3a0be31e242ef48d19c5d96a',
+			    tags: vm.tag,
+			    format: 'json',
+			    nojsoncallback: 1
 			};
 
 			$http({
-				method: 'JSONP',
+				method: 'GET',
 				url: url,
 				params: request
 			})
-			.then(function(result) {
-				console.log(result.data);
-				vm.results = result.data;
-			}, function(result) {
-				console.log('error: ', result);
+			.then(function(response) {
+				console.log(response.data);
+				// vm.responses = response.data;
+			}, function(response) {
+				console.log('error: ', response);
 			});
 		}
 	});
