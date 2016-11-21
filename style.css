@@ -12,4 +12,21 @@ ul div {
 	padding: 5px;
 }
 
+.animate {
+	width: 10px;
+	height: 10px;
+	border: 1px solid blue;
+   -webkit-animation: move 0.5s infinite;
+}
+
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform:rotate(360deg);
+  }
+  100% {
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform:rotate(360deg);
+  }
+}
 
