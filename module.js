@@ -23,8 +23,7 @@ angular.module('myApp', ['ngMessages'])
 				params: request
 			})
 			.then(function(response) {
-				console.log(response.data);
-				// vm.responses = response.data;
+				vm.results = response.data.photos.photo;
 			}, function(response) {
 				console.log('error: ', response);
 			});

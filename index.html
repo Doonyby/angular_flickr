@@ -13,17 +13,18 @@
 		<div name="searchDiv" id="searchDiv">
 			<h1>Flickr Searcher</h1>
 			<form name="vm.myForm" ng-submit="vm.formSubmit(vm.tag)">
-				<span><input type="text" ng-model="vm.tag" place-holder="Enter a tag to search for" required><input type="submit"></span>
+				<span><input type="text" ng-model="vm.tag" placeholder="Enter a tag to search for" required>
+					&nbsp &nbsp &nbsp<input type="submit"></span>
 			</form>
 		</div>
 		<div name="searchingDiv" id="searchingDiv" ng-show="vm.searchingDiv">
 			<h3>Searching Instagram for photos tagged with "{{ vm.tag }}"</h3>
 		</div>
 		<div name="resultsDiv" id="resultsDiv" ng-if="vm.results">
-			<h3>We found 20 results for "{{ vm.tag }}"</h3>
+			<h3>We found {{ vm.results.length }} results for "{{ vm.tag }}"</h3>
 			<ul>
 				<div ng-repeat="result in vm.results">
-					<li><iframe ng-src="{{ vm.trustSrc('https://farm' + {farm} + '.staticflickr.com/' + {server} + '/' + {id} + '_' + {secret} + '_m.jpg') }}"></iframe></li>
+					<li><img ng-src="{{ vm.trustSrc('https://farm' + result.farm + '.staticflickr.com/' + result.server + '/' + result.id + '_' + result.secret + '_m.jpg') }}" width="350" height="250"></li>
 				</div>
 			</ul>
 		</div>	

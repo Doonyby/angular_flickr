@@ -5,3 +5,11 @@ body {
 #bodyDiv {
 	margin-top: 200px;
 }
+
+ul div {
+	list-style-type: none;
+	display: inline-block;
+	padding: 5px;
+}
+
+
