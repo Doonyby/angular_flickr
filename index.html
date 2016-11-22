@@ -5,6 +5,7 @@
 	<title>Angular Flickr</title>
 	<link rel="stylesheet" type="text/css" href="./style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.8/angular-animate.js"></script>
 	<script src="./lib/angular-messages.min.js"></script>
 	<script src="./module.js"></script>
 </head>
@@ -17,14 +18,14 @@
 					&nbsp &nbsp &nbsp<input type="submit"></span>
 			</form>
 		</div>
-		<div name="searchingDiv" id="searchingDiv" ng-show="vm.searchingDiv" class="animate">
+		<div name="searchingDiv" id="searchingDiv" ng-show="vm.searchingDiv">
 			<h3>Searching Instagram for photos tagged with "{{ vm.tag }}"</h3>
 		</div>
-		<div name="resultsDiv" id="resultsDiv" ng-if="vm.results">
+		<div name="resultsDiv" class="resultsDiv" ng-if="vm.results">
 			<h3>We found {{ vm.results.length }} results for "{{ vm.tagger }}"</h3>
 			<ul>
 				<div ng-repeat="result in vm.results">
-					<li><img ng-src="{{ vm.trustSrc('https://farm' + result.farm + '.staticflickr.com/' + result.server + '/' + result.id + '_' + result.secret + '_m.jpg') }}" width="350" height="250"></li>
+					<li><img ng-src="{{ vm.trustSrc('https://farm' + result.farm + '.staticflickr.com/' + result.server + '/' + result.id + '_' + result.secret + '.jpg') }}" width="350" height="250"></li>
 				</div>
 			</ul>
 		</div>	

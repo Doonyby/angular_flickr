@@ -2,31 +2,24 @@ body {
 	text-align: center;
 }
 
-#bodyDiv {
-	margin-top: 200px;
-}
-
 ul div {
 	list-style-type: none;
 	display: inline-block;
 	padding: 5px;
 }
 
-.animate {
-	width: 10px;
-	height: 10px;
-	border: 1px solid blue;
-   -webkit-animation: move 0.5s infinite;
+#bodyDiv {
+	margin-top: 200px;
 }
 
-@-webkit-keyframes move {
-  0% {
-    -webkit-transform-origin: 50% 50%;
-    -webkit-transform:rotate(360deg);
-  }
-  100% {
-    -webkit-transform-origin: 50% 50%;
-    -webkit-transform:rotate(360deg);
-  }
+.resultsDiv {
+	transition: all linear 2s;
 }
 
+.resultsDiv.ng-enter {
+	opacity: 0;
+}
+
+.resultsDiv.ng-enter-active {
+	opacity: 1;
+}
