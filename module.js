@@ -25,8 +25,13 @@ angular.module('myApp', ['ngMessages', 'ngAnimate'])
 				params: request
 			})
 			.then(function(response) {
-				vm.results = response.data.photos.photo;
-				vm.tagger = tag;
+				if (response.data.photos) {
+					vm.results = response.data.photos.photo;
+					vm.tagger = tag;
+				} 
+				else {
+					console.log('request error');
+				}
 			}, function(response) {
 				console.log('error: ', response);
 			})

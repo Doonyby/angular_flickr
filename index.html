@@ -7,6 +7,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 	<script src="https://code.angularjs.org/1.5.8/angular-animate.js"></script>
 	<script src="./lib/angular-messages.min.js"></script>
+	<script src="https://use.fontawesome.com/5d841a0cc5.js"></script>
 	<script src="./module.js"></script>
 </head>
 <body ng-app="myApp">
@@ -19,7 +20,7 @@
 			</form>
 		</div>
 		<div name="searchingDiv" id="searchingDiv" ng-show="vm.searchingDiv">
-			<h3>Searching Instagram for photos tagged with "{{ vm.tag }}"</h3>
+			<h3>Searching Instagram for photos tagged with "{{ vm.tag }}"<span class="fa fa-spin fa-spinner"></span></h3>
 		</div>
 		<div name="resultsDiv" class="resultsDiv" ng-if="vm.results">
 			<h3>We found {{ vm.results.length }} results for "{{ vm.tagger }}"</h3>
